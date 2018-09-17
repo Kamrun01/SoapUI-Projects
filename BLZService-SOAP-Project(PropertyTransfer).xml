@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="96374bf8-26f3-4da8-8338-194cdbd0d772" activeEnvironment="Default" name="BLZService" resourceRoot="" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="dc40a421-aceb-4f53-b8d6-5eafb1ef2902" wsaVersion="NONE" name="blzServiceSoapBinding" type="wsdl" bindingName="{http://www.springframework.org/schema/beans}blzServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/services/blzService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/services/blzService?wsdl"><con:part><con:url>http://localhost:8080/services/blzService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="blzService" targetNamespace="http://www.springframework.org/schema/beans" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.springframework.org/schema/beans" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://thomas-bayer.com/blz/">
+  <wsdl:import location="http://localhost:8080/services/blzService?wsdl=BLZServicePortType.wsdl" namespace="http://thomas-bayer.com/blz/"></wsdl:import>
+  <wsdl:binding name="blzServiceSoapBinding" type="ns1:BLZServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getBank">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getBank">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBankResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="blzService">
+    <wsdl:port binding="tns:blzServiceSoapBinding" name="$Proxy61Port">
+      <soap:address location="http://localhost:8080/services/blzService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/services/blzService?wsdl=BLZServicePortType.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="BLZServicePortType" targetNamespace="http://thomas-bayer.com/blz/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://thomas-bayer.com/blz/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://thomas-bayer.com/blz/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://thomas-bayer.com/blz/">
+      <xs:element name="getBank" type="tns:getBankType"/>
+      <xs:element name="getBankResponse" type="tns:getBankResponseType"/>
+      <xs:complexType name="getBankType">
+        <xs:sequence>
+          <xs:element name="blz" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getBankResponseType">
+        <xs:sequence>
+          <xs:element name="details" type="tns:detailsType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="detailsType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="bezeichnung" type="xs:string"/>
+          <xs:element minOccurs="0" name="bic" type="xs:string"/>
+          <xs:element minOccurs="0" name="ort" type="xs:string"/>
+          <xs:element minOccurs="0" name="plz" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getBank">
+    <wsdl:part element="ns1:getBank" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBankResponse">
+    <wsdl:part element="ns1:getBankResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BLZServicePortType">
+    <wsdl:operation name="getBank">
+      <wsdl:input message="ns1:getBank" name="getBank"></wsdl:input>
+      <wsdl:output message="ns1:getBankResponse" name="getBankResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/services/blzService</con:endpoint></con:endpoints><con:operation id="1fbd6870-7bc7-4e5a-b6f1-32040af50195" isOneWay="false" action="" name="getBank" bindingOperationName="getBank" type="Request-Response" outputName="getBankResponse" inputName="getBank" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e452928c-279f-4aaf-b0f0-e963e95669b8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/blzService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:blz="http://thomas-bayer.com/blz/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <blz:getBank>\r
+         <blz:blz>55010111</blz:blz>\r
+      </blz:getBank>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.springframework.org/schema/beans/BLZServicePortType/getBank"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="0edc6e87-491c-4038-9905-2a95735e3b6e" name="TS_WorkingWithProperties"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="775570b6-825a-41c2-87cf-77109e6baf72" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="request" id="e2aaa017-2069-4a7a-885d-3369aeec9dfe" name="getBank - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>blzServiceSoapBinding</con:interface><con:operation>getBank</con:operation><con:request name="getBank - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="61714db5-41a8-4e56-b7d2-47d6c0588aad"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/blzService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:blz="http://thomas-bayer.com/blz/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <blz:getBank>\r
+         <blz:blz>55010111</blz:blz>\r
+      </blz:getBank>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="1594defe-33b4-45cc-83dd-e318e2460e97" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.springframework.org/schema/beans/BLZServicePortType/getBank"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="properties" name="Properties" id="ba6a4bda-e99b-42f6-8357-3a5073b8b012"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>bic_code</con:name><con:value>ESSEDE5F550</con:value></con:property><con:property><con:name>ort_code</con:name><con:value>Mainz a Rhein</con:value></con:property><con:property><con:name>plz_code</con:name><con:value>55116</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="960cff16-88c0-4695-bf6a-a35dadd2490d"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>Transfer_bic</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>getBank - Request 1</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.springframework.org/schema/beans';
+declare namespace ns2='http://thomas-bayer.com/blz/';
+//ns2:getBankResponse/ns2:details/ns2:bic</con:sourcePath><con:targetType>bic_code</con:targetType><con:targetStep>Properties</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>Transfer_ort</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>getBank - Request 1</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.springframework.org/schema/beans';
+declare namespace ns2='http://thomas-bayer.com/blz/';
+//ns2:getBankResponse/ns2:details/ns2:ort</con:sourcePath><con:targetType>ort_code</con:targetType><con:targetStep>Properties</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>Transfer_plz</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>getBank - Request 1</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.springframework.org/schema/beans';
+declare namespace ns2='http://thomas-bayer.com/blz/';
+//ns2:getBankResponse/ns2:details/ns2:plz</con:sourcePath><con:targetType>plz_code</con:targetType><con:targetStep>Properties</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
