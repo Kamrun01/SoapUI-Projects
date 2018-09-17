@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="7ff3862b-923f-4ac6-9861-7b493969d73b" activeEnvironment="Default" name="MedicareSupplier" resourceRoot="" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="b80f5917-cf1e-4d52-a3bd-5fe0163647c0" wsaVersion="NONE" name="medicareSupplierServiceSoapBinding" type="wsdl" bindingName="{http://www.springframework.org/schema/beans}medicareSupplierServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/services/medicareSupplierService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/services/medicareSupplierService?wsdl"><con:part><con:url>http://localhost:8080/services/medicareSupplierService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="medicareSupplierService" targetNamespace="http://www.springframework.org/schema/beans" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.springframework.org/schema/beans" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://www.webservicex.net/">
+  <wsdl:import location="http://localhost:8080/services/medicareSupplierService?wsdl=MediCareSupplierSoap.wsdl" namespace="http://www.webservicex.net/"></wsdl:import>
+  <wsdl:binding name="medicareSupplierServiceSoapBinding" type="ns1:MediCareSupplierSoap">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetSupplierByZipCode">
+      <soap:operation soapAction="http://www.webservicex.net/GetSupplierByZipCode" style="document"/>
+      <wsdl:input name="GetSupplierByZipCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetSupplierByZipCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierByCity">
+      <soap:operation soapAction="http://www.webservicex.net/GetSupplierByCity" style="document"/>
+      <wsdl:input name="GetSupplierByCity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetSupplierByCityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierBySupplyType">
+      <soap:operation soapAction="http://www.webservicex.net/GetSupplierBySupplyType" style="document"/>
+      <wsdl:input name="GetSupplierBySupplyType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetSupplierBySupplyTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="medicareSupplierService">
+    <wsdl:port binding="tns:medicareSupplierServiceSoapBinding" name="$Proxy62Port">
+      <soap:address location="http://localhost:8080/services/medicareSupplierService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/services/medicareSupplierService?wsdl=MediCareSupplierSoap.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="MediCareSupplierSoap" targetNamespace="http://www.webservicex.net/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://www.webservicex.net/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.webservicex.net/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.webservicex.net/">
+      <xs:element name="GetSupplierByCity">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="City" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSupplierByCityResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="GetSupplierByCityResult" type="xs:boolean"/>
+            <xs:element name="SupplierDataLists" type="tns:SupplierDataList"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSupplierBySupplyType">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="description" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSupplierBySupplyTypeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="GetSupplierBySupplyTypeResult" type="xs:boolean"/>
+            <xs:element name="SupplierDataLists" type="tns:SupplierDataList"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSupplierByZipCode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="zip" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSupplierByZipCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="GetSupplierByZipCodeResult" type="xs:boolean"/>
+            <xs:element name="SupplierDataLists" type="tns:SupplierDataList"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="SupplierDataList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SupplierDatas" type="tns:ArrayOfSupplierData"/>
+          <xs:element name="TotalRecords" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfSupplierData">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="SupplierData" type="tns:SupplierData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SupplierData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SupplierNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="CompanyName" type="xs:string"/>
+          <xs:element minOccurs="0" name="Address1" type="xs:string"/>
+          <xs:element minOccurs="0" name="Address2" type="xs:string"/>
+          <xs:element minOccurs="0" name="City" type="xs:string"/>
+          <xs:element minOccurs="0" name="State" type="xs:string"/>
+          <xs:element minOccurs="0" name="Zip" type="xs:string"/>
+          <xs:element minOccurs="0" name="ZipPlus4" type="xs:string"/>
+          <xs:element minOccurs="0" name="Telephone" type="xs:string"/>
+          <xs:element minOccurs="0" name="Description" type="xs:string"/>
+          <xs:element minOccurs="0" name="IsSupplierParticipating" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSupplierByZipCode">
+    <wsdl:part element="ns1:GetSupplierByZipCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSupplierBySupplyType">
+    <wsdl:part element="ns1:GetSupplierBySupplyType" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSupplierByZipCodeResponse">
+    <wsdl:part element="ns1:GetSupplierByZipCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSupplierByCity">
+    <wsdl:part element="ns1:GetSupplierByCity" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSupplierBySupplyTypeResponse">
+    <wsdl:part element="ns1:GetSupplierBySupplyTypeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSupplierByCityResponse">
+    <wsdl:part element="ns1:GetSupplierByCityResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MediCareSupplierSoap">
+    <wsdl:operation name="GetSupplierByZipCode">
+      <wsdl:input message="ns1:GetSupplierByZipCode" name="GetSupplierByZipCode"></wsdl:input>
+      <wsdl:output message="ns1:GetSupplierByZipCodeResponse" name="GetSupplierByZipCodeResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierByCity">
+      <wsdl:input message="ns1:GetSupplierByCity" name="GetSupplierByCity"></wsdl:input>
+      <wsdl:output message="ns1:GetSupplierByCityResponse" name="GetSupplierByCityResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierBySupplyType">
+      <wsdl:input message="ns1:GetSupplierBySupplyType" name="GetSupplierBySupplyType"></wsdl:input>
+      <wsdl:output message="ns1:GetSupplierBySupplyTypeResponse" name="GetSupplierBySupplyTypeResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/services/medicareSupplierService</con:endpoint></con:endpoints><con:operation id="3bc71bc0-62b9-433e-b090-6bea90acc844" isOneWay="false" action="http://www.webservicex.net/GetSupplierByCity" name="GetSupplierByCity" bindingOperationName="GetSupplierByCity" type="Request-Response" outputName="GetSupplierByCityResponse" inputName="GetSupplierByCity" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8c280677-77b0-452e-b718-b7c2e923492c" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/medicareSupplierService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservicex.net/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:GetSupplierByCity>\r
+         <!--Optional:-->\r
+         <web:City>LEWISVILLE</web:City>\r
+      </web:GetSupplierByCity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/GetSupplierByCity"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="4138d419-2cd4-485d-a684-20cfcf99cd62" isOneWay="false" action="http://www.webservicex.net/GetSupplierBySupplyType" name="GetSupplierBySupplyType" bindingOperationName="GetSupplierBySupplyType" type="Request-Response" outputName="GetSupplierBySupplyTypeResponse" inputName="GetSupplierBySupplyType" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="207e2bae-3d3e-450f-beff-1c9db4d75981" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/medicareSupplierService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservicex.net/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:GetSupplierBySupplyType>\r
+         <!--Optional:-->\r
+         <web:description>(972)258-8555</web:description>\r
+      </web:GetSupplierBySupplyType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/GetSupplierBySupplyType"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="ba6e5ecb-61fd-47b3-8520-2b2d37afad08" isOneWay="false" action="http://www.webservicex.net/GetSupplierByZipCode" name="GetSupplierByZipCode" bindingOperationName="GetSupplierByZipCode" type="Request-Response" outputName="GetSupplierByZipCodeResponse" inputName="GetSupplierByZipCode" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fb1eab09-9c8f-48e6-bd29-cbfe8a142aa7" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/medicareSupplierService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservicex.net/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:GetSupplierByZipCode>\r
+         <!--Optional:-->\r
+         <web:zip>75060</web:zip>\r
+      </web:GetSupplierByZipCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/GetSupplierByZipCode"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="4a65c4ec-32e0-4487-84d3-1aff87cc4b4e" name="TS_01"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="cdd860a9-5995-425f-80c4-53a262e875b0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_01_GetSupplierByCity" searchProperties="true"><con:settings/><con:testStep type="request" id="efe91f5c-0714-416a-b8cb-78711b44f189" name="GetSupplierByCity - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>medicareSupplierServiceSoapBinding</con:interface><con:operation>GetSupplierByCity</con:operation><con:request name="GetSupplierByCity - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="397dd1ba-6b8f-4dde-b0ed-8211704cbb90"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/medicareSupplierService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservicex.net/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:GetSupplierByCity>\r
+         <!--Optional:-->\r
+         <web:City>IRVING</web:City>\r
+      </web:GetSupplierByCity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b1df0647-be18-4751-aea1-f591b67c3072" name="SOAP Response"/><con:assertion type="Simple Contains" id="278cbbf0-2348-4416-a004-527d1895a402" name="Contains"><con:configuration><token>IRVING</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="9c4f7c4f-e802-4956-8b6f-2a93a04efe30" name="Not Contains"><con:configuration><token>MCKINNEY</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XPath Match" id="377c8d88-ac26-490e-9bf8-085020a1acf4" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.webservicex.net/';
+//ns1:GetSupplierByCityResponse/ns1:SupplierDataLists/ns1:SupplierDatas/ns1:SupplierData/ns1:City</path><content>IRVING</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="289722af-4652-4db8-932a-b3953c6a7e16" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XQuery Match" id="d5cfadb3-1c40-4654-81ca-67791c9d0c21" name="XQuery Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.webservicex.net/';
+
+&lt;Result>
+{
+for $x in //ns1:SupplierData 
+
+return &lt;Name>{data($x/ns1:City)}&lt;/Name>
+
+}
+&lt;/Result></path><content><![CDATA[<Result>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+  <Name>IRVING</Name>
+</Result>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/GetSupplierByCity"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="097f0462-f0cb-40d3-86be-cdc7209dd85a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_02_GetSupplierBySupplyType" searchProperties="true"><con:settings/><con:testStep type="request" id="699a2148-61d1-49af-97ab-0e436ac40722" name="GetSupplierBySupplyType - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>medicareSupplierServiceSoapBinding</con:interface><con:operation>GetSupplierBySupplyType</con:operation><con:request name="GetSupplierBySupplyType - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="48aeef23-1ebf-4e52-b16e-c6ae8906e197"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/medicareSupplierService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservicex.net/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:GetSupplierBySupplyType>\r
+         <!--Optional:-->\r
+         <web:description>(972)316-1113</web:description>\r
+      </web:GetSupplierBySupplyType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="f93d549f-8152-464b-8e70-8aba09ab8b2a" name="SOAP Response"/><con:assertion type="Simple Contains" id="6875e370-46e5-4061-90bc-78ade5b56050" name="Contains"><con:configuration><token>TX</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="f5d776c6-47b5-4c6d-921f-73ad5956291c" name="Not Contains"><con:configuration><token>IRVING</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="3a02cc4f-95fe-40a4-a9eb-5703afc16bef" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="e51cf26c-06bf-4ed8-8dcd-d984caedb72c" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.webservicex.net/';
+//ns1:GetSupplierBySupplyTypeResponse/ns1:SupplierDataLists/ns1:SupplierDatas/ns1:SupplierData/ns1:City</path><content>LEWISVILLE</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="acee0d00-b631-4f63-bd6b-f4a74ef7a4cf" name="XQuery Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.webservicex.net/';
+
+&lt;Result>
+{
+for $x in //ns1:SupplierData 
+
+return &lt;Name>{data($x/ns1:Description)}&lt;/Name>
+
+}
+&lt;/Result></path><content>&lt;Result>
+  &lt;Name>(972)316-1113&lt;/Name>
+&lt;/Result></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/GetSupplierBySupplyType"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="36193fd9-0db2-4cb4-aa03-152dd3650094" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_03_GetSupplierByZipCode" searchProperties="true"><con:settings/><con:testStep type="request" id="6a6eb900-0d16-483c-adf1-78db6e4e60ef" name="GetSupplierByZipCode - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>medicareSupplierServiceSoapBinding</con:interface><con:operation>GetSupplierByZipCode</con:operation><con:request name="GetSupplierByZipCode - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="8dec4fac-4978-4851-a216-ebcdead6a8f6"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/medicareSupplierService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservicex.net/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:GetSupplierByZipCode>\r
+         <!--Optional:-->\r
+         <web:zip>75065</web:zip>\r
+      </web:GetSupplierByZipCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="0fec1b0d-ee9a-4b8a-82c1-401fdf14ce7d" name="SOAP Response"/><con:assertion type="Simple Contains" id="78d3c512-8b40-42c6-9351-3bee9ed155f6" name="Contains"><con:configuration><token>HICKORY CREEK</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="b889bb31-dfe9-4cbd-a4e2-e19b1d4b15c0" name="Not Contains"><con:configuration><token>LEWISVILLE</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="f0bd7c32-3679-40ec-bbf2-1f73aad35884" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="XPath Match" id="74f49aca-3a03-492b-b544-6910c872bca6" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.webservicex.net/';
+
+//ns1:GetSupplierByZipCodeResponse/ns1:SupplierDataLists/ns1:SupplierDatas/ns1:SupplierData/ns1:City</path><content>HICKORY CREEK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="78cef7cb-70ff-4d30-8bf3-12929b1842dc" name="XQuery Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.webservicex.net/';
+
+&lt;Result>
+{
+for $x in //ns1:SupplierData 
+
+return &lt;Name>{data($x/ns1:Zip)}&lt;/Name>
+
+}
+&lt;/Result></path><content>&lt;Result>
+  &lt;Name>TX&lt;/Name>
+&lt;/Result></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/GetSupplierByZipCode"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
